@@ -1,0 +1,9 @@
+RewriteEngine On
+RewriteBase /
+
+# Rewrite the URL structure
+RewriteCond %{QUERY_STRING} ^&c=([^&]*)&m=([^&]*)$
+RewriteRule ^index\.php$ /%1/%2? [L,R=301]
+
+# Internally redirect the new structure back to index.php
+RewriteRule ^([^/]+)/([^/]+)$ index.php?c=$1&m=$2 [L]
