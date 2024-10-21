@@ -133,6 +133,19 @@
       </div>
       <!-- * Pack Management -->
 
+      <!-- Home -->
+      <div class="menu-item">
+        <a href="?c=message&m=list" class="menu-link">
+          <div class="menu-icon">
+            <i class="fa fa-message"></i>
+          </div>
+          <div class="menu-text">
+            Message
+          </div>
+        </a>
+      </div>
+      <!-- * Home -->
+
       <div class="menu-item d-flex">
         <a href="javascript:;" class="app-sidebar-minify-btn ms-auto d-flex align-items-center text-decoration-none" data-toggle="app-sidebar-minify" ><i class="fa fa-angle-double-left"></i></a>
       </div>
