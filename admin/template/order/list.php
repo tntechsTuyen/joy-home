@@ -38,13 +38,34 @@
 						<div class="row">
 							<div class="col-xxl-2 col-xl-3 col-md-4">
 								<div class="input-group mb-3">
-									<span class="input-group-text">Tên</span>
-									<input name="ip-name" id="ip-name" class="form-control" value="<?= $search['name']; ?>"/>
+									<span class="input-group-text">SĐT</span>
+									<input name="ip-phone" id="ip-phone" class="form-control" value="<?= $search['phone']; ?>"/>
+								</div>
+							</div>
+							<div class="col-xxl-2 col-xl-3 col-md-4">
+								<div class="input-group mb-3">
+									<span class="input-group-text">Khóa học</span>
+									<select name="ip-pack" id="ip-pack" class="form-control">
+										<option value="">Tất cả</option>
+										<?php foreach ($packInfos as $key => $item) : ?>
+											<option <?= ($search['packCode'] == $item['code']) ? "selected" : ""; ?> value="<?= $item['code']; ?>"><?= $item['name']; ?></option>
+										<?php endforeach; ?>
+									</select>
+								</div>
+							</div>
+							<div class="col-xxl-2 col-xl-3 col-md-4">
+								<div class="input-group mb-3">
+									<span class="input-group-text">Trạng thái</span>
+									<select name="ip-pack" id="ip-pack" class="form-control">
+										<option value="">Tất cả</option>
+										<?php foreach ($status as $key => $item) : ?>
+											<option <?= ($search['idStatus'] == $item['id']) ? "selected" : ""; ?> value="<?= $item['id']; ?>"><?= $item['name']; ?></option>
+										<?php endforeach; ?>
+									</select>
 								</div>
 							</div>
 							<div class="col-xxl-2 col-xl-3 col-md-4"><button type="submit" class="btn btn-primary"><i class="fa fa-search me-2"></i>Tìm kiếm</button></div>
 						</div>
-							
 					</form>
 				</div>
 			</div>

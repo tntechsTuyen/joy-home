@@ -1,5 +1,7 @@
 <?php 
+include_once("model/StatusModel.php");
 include_once("model/OrderModel.php");
+include_once("model/PackInfoModel.php");
 include_once("model/PackFormModel.php");
 include_once("model/UserPackFormModel.php");
 include_once("model/UserPackFormStepModel.php");
@@ -9,12 +11,15 @@ class OrderController{
 	private $orderModel;
 	private $orderView;
 	private $packFormModel;
+	private $packInfoModel;
 	private $userPackFormModel;
 	private $userPackFormStepModel;
 
 	public function __construct() {
+		$this->statusModel = new StatusModel();
 		$this->orderModel = new OrderModel();
 		$this->orderView = new OrderView();
+		$this->packInfoModel = new PackInfoModel();
 		$this->packFormModel = new PackFormModel();
 		$this->userPackFormModel = new UserPackFormModel();
 		$this->userPackFormStepModel = new UserPackFormStepModel();
@@ -23,12 +28,12 @@ class OrderController{
 	public function list(){
 		$status = (isset($_GET['ip-status'])) ? $_GET['ip-status'] : '';
 		$phone = (isset($_GET['ip-phone'])) ? $_GET['ip-phone'] : '';
-		$pack = (isset($_GET['ip-pack'])) ? $_GET['ip-pack'] : 0;
+		$pack = (isset($_GET['ip-pack'])) ? $_GET['ip-pack'] : ''; //
 		$page = (isset($_GET['ip-page'])) ? $_GET['ip-page'] : 1;
 
 		$search = array(
 			"idStatus"=> $status,
-			"idPack"=> $pack,
+			"packCode"=> $pack,
 			"phone"=> $phone,
 			"page" => $page,
 			"limit" => DataUtils::DATA_PAGE_LIMIT
@@ -37,7 +42,14 @@ class OrderController{
 		$list = $this->orderModel->selectList($search);
 		$count = $this->orderModel->selectCount($search);
 		$search['count'] = $count;
-		$this->orderView->goList($search, $list);
+
+		#pack
+		$packInfos = $this->packInfoModel->selectAll();
+
+		#status
+		$status = $this->statusModel->selectByTblName('order');
+
+		$this->orderView->goList($search, $packInfos, $status, $list);
 	}
 
 	public function update(){

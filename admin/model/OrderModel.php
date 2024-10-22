@@ -17,13 +17,13 @@ class OrderModel {
 		INNER JOIN user u ON o.id_user = u.id
 		INNER JOIN pack_info pi ON o.id_pack_info = pi.id
 		INNER JOIN status s ON o.id_status = s.id
-		WHERE (:idPack = 0 OR pi.id = :idPack)
+		WHERE (:packCode = '' OR pi.code = :packCode)
 		AND (:phone = '' OR u.phone = :phone)
 		AND (:idStatus = '' OR o.id_status = :idStatus) 
 		ORDER BY o.id DESC
 		LIMIT $start, $limit";
 		$param = array(
-			'idPack' => $search['idPack'],
+			'packCode' => $search['packCode'],
 			'phone' => $search['phone'],
 			'idStatus' => $search['idStatus']
 		);

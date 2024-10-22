@@ -24,6 +24,12 @@ class PackInfoModel{
 		return $this->db->selectOne($query, $param);
 	}
 
+	public function selectAll(){
+		$query = "SELECT *
+		FROM pack_info ";
+		return $this->db->selectList($query, null);
+	}
+
 	public function selectList($search){
 		$start = $search['limit'] * ($search['page']-1);
 		$limit = $search['limit'];
