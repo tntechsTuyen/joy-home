@@ -13,7 +13,8 @@ include_once("controller/MessageController.php");
 error_reporting(E_ERROR | E_PARSE);
 session_start();
 $c = (isset($_GET['c'])) ? $_GET['c'] : "user"; //class
-//$loginSession = (isset($_SESSION['login_session'])) ? $_SESSION['login_session'] : null;
+$userInfo = (isset($_SESSION[DataUtils::SESSION_LOGIN])) ? $_SESSION[DataUtils::SESSION_LOGIN] : null;
+// if($userInfo['id_role'] != 1)
 //if($loginSession == null) header("Location: ../user");
 switch ($c) {
 	case 'user':

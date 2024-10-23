@@ -71,7 +71,28 @@ class AuthController {
 		}
 
 		$userDTO = array(
+			'uuid' => HashUtils::UUID(),
+			'username' => $email,
+			'password' => md5($password),
+			'fullName' => $fullName,
+			'email' => $email,
+			'phone' => $phone,
+			'address' => $address,
+			'birth' => $birth,
+			'gender' => $gender,
+			'avatarUrl' => '',
+			'idRole' => 2,
+			'idStatus' => 1
 		);
+
+		$id = $this->authModel->createAccount($userDTO);
+		if($id > 0){
+			$_SESSION[DataUtils::SESSION_MESSAGE] = "Đăng ký thành công";
+			header("Location: ?c=auth&m=login");
+		}else{
+			$_SESSION[DataUtils::SESSION_MESSAGE] = "Đăng ký thất bại";
+			header("Location: ?c=auth&m=register");
+		}
 	}
 
 	public function forgot(){
