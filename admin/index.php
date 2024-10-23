@@ -10,6 +10,7 @@ include_once("controller/FormStepController.php");
 include_once("controller/PackInfoController.php");
 include_once("controller/OrderController.php");
 include_once("controller/MessageController.php");
+include_once("controller/PostController.php");
 error_reporting(E_ERROR | E_PARSE);
 session_start();
 $c = (isset($_GET['c'])) ? $_GET['c'] : "user"; //class
@@ -40,6 +41,9 @@ switch ($c) {
 		break;
 	case 'message':
 		$controller = new MessageController();
+		break;
+	case 'post':
+		$controller = new PostController();
 		break;
 	default:
 		// 404 not found

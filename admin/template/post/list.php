@@ -13,12 +13,12 @@
 		<div id="content" class="app-content">
 			<ol class="breadcrumb float-xl-end">
 				<li class="breadcrumb-item"><a href="javascript:;">Trang chủ</a></li>
-				<li class="breadcrumb-item"><a href="javascript:;">Nhóm</a></li>
+				<li class="breadcrumb-item"><a href="javascript:;">Nội dung</a></li>
 				<li class="breadcrumb-item active">Danh sách</li>
 			</ol>
 
 			<h1 class="page-header d-flex align-items-center">
-			  	Quản lý nhóm
+			  	Quản lý nội dung
 			</h1>
 
 			<!-- Panel search -->
@@ -33,7 +33,7 @@
 				</div>
 				<div class="panel-body">
 					<form method="GET">
-						<input type="text" name="c" class="d-none" value="formGroup">
+						<input type="text" name="c" class="d-none" value="post">
 						<input type="text" name="m" class="d-none" value="list">
 						<div class="row">
 							<div class="col-xxl-2 col-xl-3 col-md-4">
@@ -42,9 +42,43 @@
 									<input name="ip-name" id="ip-name" class="form-control" value="<?= $search['name']; ?>"/>
 								</div>
 							</div>
+							
+							<div class="col-xxl-2 col-xl-3 col-md-4">
+								<div class="input-group mb-3">
+									<span class="input-group-text">Key</span>
+									<select name="ip-key" id="ip-key" class="form-control">
+										<option value="">Tất cả</option>
+										<?php foreach ($keys as $key => $item) : ?>
+											<option <?= ($search['key'] == $item['key']) ? "selected" : ""; ?> value="<?= $item['key']; ?>"><?= $item['name']; ?></option>
+										<?php endforeach; ?>
+									</select>
+								</div>
+							</div>
+							
+							<div class="col-xxl-2 col-xl-3 col-md-4">
+								<div class="input-group mb-3">
+									<span class="input-group-text">Loại</span>
+									<select name="ip-type" id="ip-type" class="form-control">
+										<option value="">Tất cả</option>
+										<?php foreach ($types as $key => $item) : ?>
+											<option <?= ($search['idType'] == $item['id']) ? "selected" : ""; ?> value="<?= $item['id']; ?>"><?= $item['name']; ?></option>
+										<?php endforeach; ?>
+									</select>
+								</div>
+							</div>
+							<div class="col-xxl-2 col-xl-3 col-md-4">
+								<div class="input-group mb-3">
+									<span class="input-group-text">Trạng thái</span>
+									<select name="ip-status" id="ip-status" class="form-control">
+										<option value="">Tất cả</option>
+										<?php foreach ($status as $key => $item) : ?>
+											<option <?= ($search['idStatus'] == $item['id']) ? "selected" : ""; ?> value="<?= $item['id']; ?>"><?= $item['name']; ?></option>
+										<?php endforeach; ?>
+									</select>
+								</div>
+							</div>
 							<div class="col-xxl-2 col-xl-3 col-md-4"><button type="submit" class="btn btn-primary"><i class="fa fa-search me-2"></i>Tìm kiếm</button></div>
 						</div>
-							
 					</form>
 				</div>
 			</div>
@@ -68,24 +102,30 @@
 								<tr>
 									<th>#</th>
 									<th>Mã</th>
+									<th>Key</th>
 									<th>Tên</th>
 									<th>Mô tả</th>
+									<th>Loại</th>
+									<th>Trạng thái</th>
 									<th>Ngày tạo</th>
 									<th>Ngày sửa</th>
 									<th></th>
 								</tr>
 							</thead>
 							<tbody>
-								<?php if(count($groups) > 0) : ?>
-	                      		<?php foreach ($groups as $key => $item) : ?>
+								<?php if(count($posts) > 0) : ?>
+	                      		<?php foreach ($posts as $key => $item) : ?>
 	                      		<tr>
 	                      			<td><?= $key + 1; ?></td>
 	                      			<td><?= $item['code']; ?></td>
+	                      			<td><?= $item['key_name']; ?></td>
 	                      			<td><?= $item['name']; ?></td>
 	                      			<td><?= $item['description']; ?></td>
+	                      			<td><?= $item['type_name']; ?></td>
+	                      			<td><?= $item['status_name']; ?></td>
 	                      			<td><?= $item['created_date']; ?></td>
 	                      			<td><?= $item['updated_date']; ?></td>
-	                      			<td><a href="?c=formGroup&m=goUpdate&code=<?= $item['code']; ?>"><i class="fa fa-cog"></i></a></td>
+	                      			<td><a href="?c=post&m=goUpdate&code=<?= $item['code']; ?>"><i class="fa fa-cog"></i></a></td>
 	                      		</tr>
 	                      		<?php endforeach; ?>
 	                      		<?php else : ?>

@@ -16,8 +16,8 @@
 
   <div class="navbar-nav">
     <!-- Navbar notify -->
-    <div class="navbar-item dropdown">
-      <a href="#" data-bs-toggle="dropdown" class="navbar-link dropdown-toggle icon" aria-expanded="false">
+    <div class="navbar-item">
+      <a href="?c=message&m=list" class="navbar-link icon">
         <i class="fas fa-message"></i>
           <!-- Enable sound -->
           <span class="badge">5</span>

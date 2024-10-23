@@ -51,14 +51,11 @@
 								  	<input name="ip-description" id="ip-description" class="form-control fs-15px" value="<?= $packInfo['description']; ?>"/>
 								  	<label for="ip-description" class="d-flex align-items-center fs-13px">Mô tả</label>
 								</div>
-
-								<!-- Field Content HTML -->
 								
 								<div class="form-floating mt-2">
 								  	<input type="number" name="ip-price" id="ip-price" class="form-control fs-15px" value="<?= $packInfo['price']; ?>" />
 								  	<label for="ip-price" class="d-flex align-items-center fs-13px">Giá</label>
 								</div>
-								<!-- * Field Content HTML -->
 
 								<button type="submit" class="btn btn-primary mt-2">Lưu</button>
 								<a class="btn btn-danger mt-2" href="?c=packInfo&m=list">Danh sách</a>

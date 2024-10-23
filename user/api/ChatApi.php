@@ -25,8 +25,8 @@ class ChatApi {
 
 		if(strlen($message) == 0) return ApiResponseUtils::ERROR(400, 'Lỗi hệ thống', $message);
 
-		$userReceiveMessage = $this->configModel->selectOneByKey('user_receive_message');
-		if($userReceiveMessage === false) return ApiResponseUtils::ERROR(400, 'Lỗi hệ thống', 'user_receive_message');
+		$userReceiveMessage = $this->configModel->selectOneByKey('channel_user_receive_message');
+		if($userReceiveMessage === false) return ApiResponseUtils::ERROR(400, 'Lỗi hệ thống', 'channel_user_receive_message');
 
 		#check user channel
 		if(strlen($channelCode) == 0){

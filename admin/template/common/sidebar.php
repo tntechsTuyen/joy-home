@@ -120,7 +120,7 @@
       </div>
       <!-- * Pack Management -->
 
-      <!-- Pack Management -->
+      <!-- Order Management -->
       <div class="menu-item has-sub">
         <a href="javascript:;" class="menu-link">
           <div class="menu-icon"><i class="fa fa-shopping-cart"></i></div>
@@ -131,7 +131,21 @@
           <div class="menu-item"><a href="?c=order&m=list" class="menu-link"><div class="menu-text">Danh sách</div></a></div>
         </div>
       </div>
-      <!-- * Pack Management -->
+      <!-- * Order Management -->
+
+      <!-- Post Management -->
+      <div class="menu-item has-sub">
+        <a href="javascript:;" class="menu-link">
+          <div class="menu-icon"><i class="fa fa-shopping-cart"></i></div>
+          <div class="menu-text">Quản lý nội dung</div>
+          <div class="menu-caret"></div>
+        </a>
+        <div class="menu-submenu">
+          <div class="menu-item"><a href="?c=post&m=list" class="menu-link"><div class="menu-text">Danh sách</div></a></div>
+          <div class="menu-item"><a href="?c=post&m=goAdd" class="menu-link"><div class="menu-text">Thêm mới</div></a></div>
+        </div>
+      </div>
+      <!-- * Post Management -->
 
       <div class="menu-item d-flex">
         <a href="javascript:;" class="app-sidebar-minify-btn ms-auto d-flex align-items-center text-decoration-none" data-toggle="app-sidebar-minify" ><i class="fa fa-angle-double-left"></i></a>
