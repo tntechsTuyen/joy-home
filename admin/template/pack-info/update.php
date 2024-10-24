@@ -179,7 +179,7 @@
     <!-- * Modal -->
 	<?php include_once("template/common/js.php"); ?>
 	<script>
-		const content = "<?= $packInfo['content_html']; ?>"
+		const content = `<?= $packInfo['content_html']; ?>`;
 		$("textarea[name='ip-content-html']").summernote('code', content);
 	</script>
 </body>
