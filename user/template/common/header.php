@@ -25,7 +25,7 @@
     </div>
     <div class="container px-0">
         <nav class="navbar navbar-light navbar-expand-xl py-2">
-            <a href="?m=home" class="navbar-brand"><img src="user/asset/img/logo3.png" height="70px"></a>
+            <a href="?m=index" class="navbar-brand"><img src="user/asset/img/logo3.png" height="70px"></a>
             <button class="navbar-toggler py-2 px-3" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
                 <span class="fa fa-bars text-primary"></span>
             </button>

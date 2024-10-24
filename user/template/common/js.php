@@ -9,5 +9,6 @@
 <script src="user/asset/plugin/popper/js/popper.min.js"></script>
 
 <!-- Template Javascript -->
+<script src="user/asset/js/prototype.min.js"></script>
 <script src="user/asset/js/main.js"></script>
 <script src="user/asset/plugin/jquery-ui/js/jquery-ui.js"></script>

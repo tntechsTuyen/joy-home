@@ -78,7 +78,7 @@
 
 					<div class="text-center w-full p-t-25 p-b-230"></div>
 					<div class="text-center w-full">
-						<a class="txt1" href="?m=login">
+						<a class="txt1" href="?c=auth&m=login">
 							Đăng nhập hệ thống <i class="fas fa-arrow-right ms-2"></i>
 						</a>
 					</div>

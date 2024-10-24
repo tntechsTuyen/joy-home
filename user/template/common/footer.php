@@ -103,5 +103,30 @@
 </div>
 <!-- Copyright End -->
 
+<?php if(isset($_SESSION[DataUtils::SESSION_LOGIN])) : ?>
+<!-- Chat -->
+<div class="chat-dialog position-fixed" style="bottom: 30px; right: 80px; display: none;">
+    <div class="card mt-5">
+        <div class="d-flex flex-row justify-content-between p-3 adiv text-white">
+            <span class="pb-3">Live chat</span>
+            <i class="fas fa-times btn-close-chat"></i>
+        </div>
+        <div class="d-flex flex-row px-3 py-2">
+            <img src="https://img.icons8.com/color/48/000000/circled-user-female-skin-type-7.png" width="30" height="30">
+            <div class="chat ml-2 px-3 py-2">Xin chào bạn đã đến với JOYHome</div>
+        </div>
+        <div class="d-flex flex-row px-3 py-2">
+            <div class="bg-white ms-auto px-3 py-2"><span class="text-muted">Xin chào</span></div>
+            <img src="https://img.icons8.com/color/48/000000/circled-user-male-skin-type-7.png" width="30" height="30">
+        </div>
+        <div class="form-group px-3 mb-3">
+            <textarea class="form-control" rows="5" placeholder="Nhập tin nhắn của bạn vào đây"></textarea>
+        </div>
+    </div>
+</div>
+
 <!-- Back to Top -->
-<a href="#" class="btn btn-primary border-3 border-primary rounded-circle back-to-top"><i class="fa fa-arrow-up"></i></a>   
+<button class="btn btn-primary border-3 border-primary rounded-circle chat-btn"><i class="bi bi-chat-dots-fill"></i></button>
+<?php endif; ?>
+
+<a href="#" class="btn btn-primary border-3 border-primary rounded-circle back-to-top"><i class="fa fa-arrow-up"></i></a>

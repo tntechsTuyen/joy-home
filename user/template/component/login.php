@@ -33,13 +33,13 @@
 					</div>
 
 					<div class="text-center w-full p-t-25 p-b-230">
-						<a href="?m=forgot" class="txt1">
+						<a href="?c=auth&m=forgot" class="txt1">
 							Quên tài khoản / mật khẩu
 						</a>
 					</div>
 
 					<div class="text-center w-full">
-						<a class="txt1" href="?m=register">
+						<a class="txt1" href="?c=auth&m=register">
 							Đăng ký tài khoản<i class="fas fa-arrow-right ms-2"></i>
 						</a>
 					</div>

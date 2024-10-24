@@ -75,7 +75,6 @@
         </div>
     </div>
     <!-- Contact End -->
-
     <?php include_once("user/template/common/footer.php"); ?>
     <?php include_once("user/template/common/js.php"); ?>
 </body>

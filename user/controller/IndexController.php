@@ -55,18 +55,6 @@ class IndexController {
 		return $this->indexView->policy();
 	}
 
-	public function login(){
-		return $this->indexView->login();
-	}
-
-	public function register(){
-		return $this->indexView->register();
-	}
-
-	public function forgot(){
-		return $this->indexView->forgot();
-	}
-
 	public function profile(){
 		$userInfo = $_SESSION[DataUtils::SESSION_LOGIN];
 		$forms = $this->userPackFormModel->selectFormByUser($userInfo['id']);
