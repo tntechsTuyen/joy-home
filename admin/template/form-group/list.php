@@ -80,7 +80,7 @@
 	                      		<?php foreach ($groups as $key => $item) : ?>
 	                      		<tr>
 	                      			<td><?= $key + 1; ?></td>
-	                      			<td><?= $item['code']; ?></td>
+	                      			<td><label class="mw-80px text-truncate" title="<?= $item['code']; ?>"><?= $item['code']; ?></label></td>
 	                      			<td><?= $item['name']; ?></td>
 	                      			<td><?= $item['description']; ?></td>
 	                      			<td><?= $item['created_date']; ?></td>

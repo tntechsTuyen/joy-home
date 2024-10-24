@@ -105,7 +105,7 @@
 	                      		<?php foreach ($users as $key => $item) : ?>
 	                      		<tr>
 	                      			<td><?= $key + 1; ?></td>
-	                      			<td><?= $item['uuid']; ?></td>
+	                      			<td><label class="mw-80px text-truncate" title="<?= $item['uuid']; ?>"><?= $item['uuid']; ?></label></td>
 	                      			<td><?= $item['username']; ?></td>
 	                      			<td><?= $item['full_name']; ?></td>
 	                      			<td><?= $item['email']; ?></td>

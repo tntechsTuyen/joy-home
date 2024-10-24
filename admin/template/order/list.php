@@ -102,7 +102,7 @@
 		                  		<?php foreach ($orders as $key => $item) : ?>
 		                  		<tr>
 		                  			<td><?= $key + 1; ?></td>
-		                  			<td><?= $item['code']; ?></td>
+		                  			<td><label class="mw-80px text-truncate" title="<?= $item['code']; ?>"><?= $item['code']; ?></label></td>
 		                  			<td><?= $item['pack_name']; ?></td>
 		                  			<td><?= $item['user_full_name']; ?></td>
 		                  			<td><?= $item['status_name']; ?></td>
