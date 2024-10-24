@@ -122,4 +122,15 @@
         }).appendTo('body');
     })
 
+
+    $("form").submit(function(){
+        $("#spinner").removeClass("show");
+    })
+
+    $("a").click(function(e){
+        if($(this).attr('target') == '_blank') return;
+        if(!e.ctrlKey && $(this).attr("href") !== undefined && $(this).attr("href").isUrl()){
+            $("#spinner").removeClass("show");
+        }
+    })
 })(jQuery);
