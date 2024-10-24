@@ -57,6 +57,10 @@
 								  	<label for="ip-price" class="d-flex align-items-center fs-13px">Giá</label>
 								</div>
 
+								<div id="step-content" class="form-floating mt-2">
+									<textarea name="ip-content-html" class="form-control"></textarea>
+								</div>
+
 								<button type="submit" class="btn btn-primary mt-2">Lưu</button>
 								<a class="btn btn-danger mt-2" href="?c=packInfo&m=list">Danh sách</a>
 							</form>
@@ -70,7 +74,7 @@
 					<!-- Form Information -->
 					<div class="panel panel-inverse">
 						<div class="panel-heading">
-					    	<h4 class="panel-title">Danh sách khóa học</h4>
+					    	<h4 class="panel-title">Danh sách bài giảng</h4>
 						    <div class="panel-heading-btn">
 						    	<a href="javascript:;" class="btn btn-xs btn-icon btn-default" data-toggle="panel-expand"><i class="fa fa-expand"></i></a>
 						    	<a href="javascript:;" class="btn btn-xs btn-icon btn-success" data-toggle="panel-reload"><i class="fa fa-redo"></i></a>
@@ -98,7 +102,7 @@
 		                      			<td><?= $key + 1; ?></td>
 		                      			<td><?= $item['group_name']; ?></td>
 		                      			<td><img src="../<?= $item['form_thumb_url']; ?>" class="rounded h-30px"></td>
-		                      			<td><?= $item['form_code']; ?></td>
+		                      			<td><label class="mw-80px text-truncate" title="<?= $item['form_code']; ?>"><?= $item['form_code']; ?></label></td>
 		                      			<td><?= $item['form_name']; ?></td>
 		                      			<td><?= $item['form_description']; ?></td>
 		                      		</tr>
@@ -174,5 +178,9 @@
 	</div>
     <!-- * Modal -->
 	<?php include_once("template/common/js.php"); ?>
+	<script>
+		const content = "<?= $packInfo['content_html']; ?>"
+		$("textarea[name='ip-content-html']").summernote('code', content);
+	</script>
 </body>
 </html>

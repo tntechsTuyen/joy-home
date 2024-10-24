@@ -62,12 +62,14 @@ class PackInfoModel{
 		$query = "UPDATE pack_info
 		SET name = :name
 			, description = :description
+			, content_html = :contentHtml
 			, price = :price
 			, updated_date = NOW()
 		WHERE id = :id";
 		$param = array(
 			'name' => $packInfoDTO['name'],
 			'description' => $packInfoDTO['description'],
+			'contentHtml' => $packInfoDTO['contentHtml'],
 			'price' => $packInfoDTO['price'],
 			'id' => $packInfoDTO['id']
 		);
@@ -75,13 +77,14 @@ class PackInfoModel{
 	}
 
 	public function insert($packInfoDTO){
-		$query = "INSERT INTO pack_info (code, name, description, price, created_date, updated_date)
-		VALUES (:code, :name, :description, :price, NOW(), NOW())";
+		$query = "INSERT INTO pack_info (code, name, description, content_html, price, created_date, updated_date)
+		VALUES (:code, :name, :description, :contentHtml, :price, NOW(), NOW())";
 		
 		$param = array(
 			'code' => $packInfoDTO['code'],
 			'name' => $packInfoDTO['name'],
 			'description' => $packInfoDTO['description'],
+			'contentHtml' => $packInfoDTO['contentHtml'],
 			'price' => $packInfoDTO['price']
 		);
 		return $this->db->insert($query, $param);

@@ -72,6 +72,7 @@ class PackInfoController{
 		$code = (isset($_POST['ip-code'])) ? $_POST['ip-code'] : null;
 		$name = (isset($_POST['ip-name'])) ? $_POST['ip-name'] : null;
 		$description = (isset($_POST['ip-description'])) ? $_POST['ip-description'] : null;
+		$contentHtml = (isset($_POST['ip-content-html'])) ? $_POST['ip-content-html'] : null;
 		$price = (isset($_POST['ip-price'])) ? $_POST['ip-price'] : null;
 		
 		$packInfo = $this->packInfoModel->selectByCode($code);
@@ -86,6 +87,7 @@ class PackInfoController{
 			'code' => $code,
 			'name' => $name,
 			'description' => $description,
+			'contentHtml' => $contentHtml,
 			'price' => $price
 		);
 		$this->packInfoModel->update($packInfoDTO);
