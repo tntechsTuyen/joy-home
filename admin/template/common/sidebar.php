@@ -136,7 +136,7 @@
       <!-- Post Management -->
       <div class="menu-item has-sub">
         <a href="javascript:;" class="menu-link">
-          <div class="menu-icon"><i class="fa fa-shopping-cart"></i></div>
+          <div class="menu-icon"><i class="fa fa-rss-square"></i></div>
           <div class="menu-text">Quản lý nội dung</div>
           <div class="menu-caret"></div>
         </a>

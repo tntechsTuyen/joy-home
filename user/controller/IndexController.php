@@ -2,6 +2,7 @@
 include_once("user/model/PackInfoModel.php");
 include_once("user/model/UserPackFormModel.php");
 include_once("user/model/OrderModel.php");
+include_once("user/model/PostModel.php");
 include_once("user/view/IndexView.php");
 
 class IndexController {
@@ -9,12 +10,14 @@ class IndexController {
 	private $indexView;
 	private $userPackFormModel;
 	private $orderModel;
+	private $postModel;
 
 	public function __construct() {
 		$this->packInfoModel = new PackInfoModel();
 		$this->indexView = new IndexView();
 		$this->userPackFormModel = new UserPackFormModel();
 		$this->orderModel = new OrderModel();
+		$this->postModel = new PostModel();
 	}
 
 	public function index(){
@@ -24,7 +27,10 @@ class IndexController {
 			"limit" => 200
 		);
 		$packs = $this->packInfoModel->selectList($packInfoSearch);
-		return $this->indexView->index($packs);
+
+		$banners = $this->postModel->selectByKey(DataUtils::CONFIG_POST_BANNER);
+
+		return $this->indexView->index($packs, $banners);
 	}
 
 	public function courses(){

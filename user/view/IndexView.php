@@ -1,7 +1,7 @@
 <?php 
 
 class IndexView {
-	public function index($packs){
+	public function index($packs, $banners){
 		include_once("user/template/component/index.php");
 	}
 

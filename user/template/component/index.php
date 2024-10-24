@@ -10,12 +10,10 @@
     <div class="container-fluid hero-header wow fadeIn p-0" data-wow-delay="0.1s">
         <div class="position-relative">
             <div class="owl-carousel slide-one-item">
-                <div class="d-md-flex testimony-29101 align-items-stretch"><img src="user/asset/img/banner1.jpeg" class="image"/></div>
-                <div class="d-md-flex testimony-29101 align-items-stretch"><img src="user/asset/img/banner2.jpeg" class="image"/></div>
-                <div class="d-md-flex testimony-29101 align-items-stretch"><img src="user/asset/img/banner3.jpeg" class="image"/></div>
-                <div class="d-md-flex testimony-29101 align-items-stretch"><img src="user/asset/img/banner4.jpeg" class="image"/></div>
-                <div class="d-md-flex testimony-29101 align-items-stretch"><img src="user/asset/img/banner5.jpeg" class="image"/></div>
-                <div class="d-md-flex testimony-29101 align-items-stretch"><img src="user/asset/img/banner6.jpeg" class="image"/></div>
+                <?php foreach ($banners as $key => $item) : ?>
+                    <?php if($item['id_type'] != 6) continue; ?>
+                    <div class="d-md-flex testimony-29101 align-items-stretch"><img src="<?= $item['content'] ?>" class="image"/></div>
+                <?php endforeach; ?>
             </div>
         </div>
     </div>
