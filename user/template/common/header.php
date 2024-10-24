@@ -31,7 +31,7 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarCollapse">
                 <div class="navbar-nav mx-auto text-center">
-                    <a href="?m=home" class="nav-item nav-link active">Trang chủ</a>
+                    <a href="?m=index" class="nav-item nav-link active">Trang chủ</a>
                     <a href="?m=about" class="nav-item nav-link">Về tôi</a>
                     <a href="?m=terms" class="nav-item nav-link">Điều khoản</a>
                     <a href="?m=policy" class="nav-item nav-link">Chính sách</a>

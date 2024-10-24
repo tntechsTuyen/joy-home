@@ -136,15 +136,15 @@
                 cate.querySelector('.data-count-2').querySelector('.progress-bar').style.width = `${rate}%`;
                 cate.querySelector('.data-count-3').innerHTML = `${rate.toFixed(0)}%`;
                 
-                var iconClass = `fa-play-circle text-warning`;
+                var iconClass = ` fa-play-circle text-warning`;
                 if(finishCount == 0){
                     //gray
                     //question-circle
-                    iconClass = `fa-question-circle text-muted`;
+                    iconClass = ` fa-question-circle text-muted`;
                 }else if(finishCount == allCount){
                     //green
                     //check-circle
-                    iconClass = `fa-check-circle text-success`;
+                    iconClass = ` fa-check-circle text-success`;
                 }
                 cate.querySelector('.cate-ico').className += iconClass;
             }
