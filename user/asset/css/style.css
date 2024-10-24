@@ -826,3 +826,7 @@ ul li {
     width: 380px;
     height: 380px;
 }
+
+.mw-80px{
+    max-width: 80px;
+}

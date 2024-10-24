@@ -21,7 +21,7 @@
 			<h1 class="page-header">Thông tin khóa học</h1>
 			<div class="row">
 				<!-- Content left -->
-				<div class="col-xl-4">
+				<div class="col-xl-7">
 					<!-- Form Information -->
 					<div class="panel panel-inverse">
 						<div class="panel-heading">
@@ -70,7 +70,7 @@
 				</div>
 				<!-- * Content left -->
 
-				<div class="col-xl-4">
+				<div class="col-xl-5">
 					<!-- Form Information -->
 					<div class="panel panel-inverse">
 						<div class="panel-heading">

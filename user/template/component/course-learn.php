@@ -32,6 +32,11 @@
 #tool-bar{
     display: none;
 }
+
+.data-count-2{
+    width: 100px;
+    height: 5px;
+}
 </style>
 <body class="overflow-hidden">
     <!-- * Spinner -->
@@ -58,18 +63,16 @@
                 <div id="list-step" class="list-group list-group-flush rounded-bottom panel-body p-0 custom-scrollbar-css">
                     <?php foreach ($cates as $key => $cate) : ?>
                     <div class="card mb-2" id="cate-<?= $cate['cate_id']; ?>">
-                        <div class="list-group-item d-flex border-top-0">
-                            <div class="me-3 fs-16px"><i class="cate-ico fas fa-check-circle text-success fa-fw"></i></div>
+                        <div class="cate-item list-group-item d-flex border-top-0">
+                            <div class="me-3 fs-16px"><i class="cate-ico fas fa-fw"></i></div>
                             <div class="flex-fill">
                                 <div class="fs-14px lh-12 mb-2px fw-bold text-dark"><?= $cate['cate_name']; ?></div>
                                 <div class="d-flex align-items-center mb-5px">
-                                    <div class="fs-12px text-dark fw-bold d-none">
-                                        Task (3/3)
-                                    </div>
-                                    <div class="progress progress-xs w-100px mb-0 mx-2 h-5px">
+                                    <div class="fs-12px text-dark fw-bold data-count-1"></div>
+                                    <div class="progress progress-xs w-100px mb-0 data-count-2">
                                         <div class="progress-bar progress-bar-striped bg-success" style="width: 100%;"></div>
                                     </div>
-                                    <div class="fs-10px fw-bold"><?= $cate['upf_process'] ?>%</div>
+                                    <div class="fs-10px fw-bold data-count-3"></div>
                                     <div class="ms-auto">
                                         <a href="#" class="btn btn-outline-default text-gray-600 btn-xs rounded-pill fs-10px px-2" data-bs-toggle="collapse" data-bs-target="#collapse-<?= $cate['cate_id']; ?>" aria-expanded="false">
                                             <i class="fas fa-chevron-down"></i>
@@ -79,7 +82,7 @@
                                 <div class="form-group mb-1">
                                     <div class="collapse <?= $cate['collapse'] ?>" id="collapse-<?= $cate['cate_id']; ?>" style="">
                                         <?php foreach ($cate['steps'] as $key => $step) : ?>
-                                        <div class="cursor-pointer mb-1">
+                                        <div class="step-item cursor-pointer mb-1" data-status="<?= $step['upfs_status'] ?>" data-cate="#cate-<?= $cate['cate_id']; ?>">
                                             <?php if($stepInfo['step_code'] == $step['step_code']) : ?>
                                                 <a href="#" class="text-primary"><i class="fas fa-hand-point-right me-2"></i><?= $step['step_name'] ?></a>
                                             <?php else : ?>
@@ -114,5 +117,39 @@
     </div>
 
     <?php include_once("user/template/common/js.php"); ?>
+    <script>
+        
+        init();
+
+        function init(){
+            calculatorProcess();
+        }
+
+        function calculatorProcess(){
+            var cates = document.getElementsByClassName('cate-item');
+            for(var i = 0; i < cates.length; i++){
+                var cate = cates[i];
+                var allCount = cate.querySelectorAll(`.step-item`).length;
+                var finishCount = cate.querySelectorAll(`.step-item[data-status='14']`).length;
+                var rate = finishCount*100/allCount*1;
+                cate.querySelector('.data-count-1').innerHTML = `Task (${finishCount}/${allCount})`;
+                cate.querySelector('.data-count-2').querySelector('.progress-bar').style.width = `${rate}%`;
+                cate.querySelector('.data-count-3').innerHTML = `${rate.toFixed(0)}%`;
+                
+                var iconClass = `fa-play-circle text-warning`;
+                if(finishCount == 0){
+                    //gray
+                    //question-circle
+                    iconClass = `fa-question-circle text-muted`;
+                }else if(finishCount == allCount){
+                    //green
+                    //check-circle
+                    iconClass = `fa-check-circle text-success`;
+                }
+                cate.querySelector('.cate-ico').className += iconClass;
+            }
+        }
+
+    </script>
 </body>
 </html>
